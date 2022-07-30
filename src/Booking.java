@@ -9,7 +9,7 @@ public class Booking {
     private boolean isBusiness;
 
     public Booking(Room room, LocalDate beginning, LocalDate end, boolean isBusiness, Guest... guests) {
-        if (guests.length == 0) {
+        if (isEmpty(guests)) {
             throw new NullPointerException("Je potřeba zadat minimálně jednoho hosta");
         } else {
             this.listOfGuest.addAll(Arrays.asList(guests));
@@ -20,6 +20,7 @@ public class Booking {
         }
     }
 
+    private boolean isEmpty(Guest... guests) { return guests.length == 0; }
     public String getDescription() {
         return "Rezervace: "+this.room.getDescription()+"OD: "+this.getBeginning()+
                 " DO: "+this.getEnd()+this.getStringBusiness()+" Rezervace pro:"+getStringGuests();
