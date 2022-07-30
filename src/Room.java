@@ -2,12 +2,13 @@ import java.math.BigDecimal;
 
 
 public class Room {
-    int numRoom, numBeds;
-    boolean balcony,seeSea;
-    BigDecimal price;
+    private int numRoom;
+    private int numBeds;
+    private boolean balcony,seeSea;
+    private BigDecimal price;
 
 
-    public Room(int numRoom, int numBeds, boolean balcony, boolean seeSea, BigDecimal price){
+    public Room(int numRoom, int numBeds, boolean balcony, boolean seeSea, BigDecimal price) {
         this.numRoom = numRoom;
         this.numBeds = numBeds;
         this.balcony = balcony;
@@ -15,25 +16,13 @@ public class Room {
         this.price = price;
     }
 
-    public String getDescription(){
-        return "Pokoj čislo: "+this.numRoom+getStringBeds()+
-                getStringBalcony()+getStringSea()+",cena na noc: "+this.price+ " Kč";
+    public String getDescription() {
+        return "Pokoj čislo: "+numRoom+getStringBeds()+
+                getStringBalcony()+getStringSea()+", cena za noc: "+price+ " Kč ";
     }
-    private String getStringBalcony() {
-        if (this.balcony) {
-            return " s balkónem";
-        } else {
-            return " bez balkónu";
-        }
-    }
+    private String getStringBalcony() { return balcony ? " s balkónem" : " bez balkónu"; }
 
-    private String getStringSea() {
-        if (this.seeSea) {
-            return " s výhledem na moře";
-        } else {
-            return " bez výhledu na moře";
-        }
-    }
+    private String getStringSea() { return seeSea ? " s výhledem na moře" : " bez výhledu na moře"; }
 
     private String getStringBeds() {
         if (this.numBeds == 1){
@@ -44,9 +33,7 @@ public class Room {
         return " bez postelí";
     }
 
-    public int getNumRoom() {
-        return numRoom;
-    }
+    public int getNumRoom() { return numRoom; }
 
     public void setNumRoom(int numRoom) {
         this.numRoom = numRoom;

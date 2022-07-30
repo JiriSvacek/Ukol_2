@@ -1,18 +1,17 @@
 import java.time.LocalDate;
 
 public class Guest {
-    private String name, surname;
-    LocalDate born;
+    private String name;
+    private String surname;
+    private LocalDate born;
 
-    public Guest(String name, String surname, LocalDate born){
+    public Guest(String name, String surname, LocalDate born) {
         this.name = name;
         this.surname = surname;
         this.born = born;
     }
 
-    public String getDescription(){
-       return "Host: "+this.name+" "+this.surname+" Narozen: "+this.born;
-    }
+    public String getDescription() { return "Host: "+name+" "+surname+" Narozen: "+born; }
 
     public String getName() {
         return name;

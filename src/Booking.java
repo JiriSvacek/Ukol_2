@@ -3,17 +3,21 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Booking {
-    ArrayList<Guest> listOfGuest = new ArrayList<>();
-    Room room;
-    LocalDate beginning, end;
-    boolean isBusiness;
+    private ArrayList<Guest> listOfGuest = new ArrayList<>();
+    private Room room;
+    private LocalDate beginning, end;
+    private boolean isBusiness;
 
     public Booking(Room room, LocalDate beginning, LocalDate end, boolean isBusiness, Guest... guests) {
-        this.listOfGuest.addAll(Arrays.asList(guests));
-        this.room = room;
-        this.beginning = beginning;
-        this.end = end;
-        this.isBusiness = isBusiness;
+        if (guests.length == 0) {
+            throw new NullPointerException("Je potřeba zadat minimálně jednoho hosta");
+        } else {
+            this.listOfGuest.addAll(Arrays.asList(guests));
+            this.room = room;
+            this.beginning = beginning;
+            this.end = end;
+            this.isBusiness = isBusiness;
+        }
     }
 
     public String getDescription() {
@@ -22,17 +26,13 @@ public class Booking {
     }
 
     private String getStringBusiness() {
-        if (this.isBusiness) {
-            return " , důvodem je pracovní cesta. ";
-        } else {
-            return ", důvodem není pracovní cesta.";
-        }
+        return isBusiness ? " , důvodem je pracovní cesta. ": ", důvodem není pracovní cesta.";
     }
 
-    private String getStringGuests(){
+    private String getStringGuests() {
         String seznam = " ";
         for (Guest guest: this.listOfGuest) {
-            seznam += guest.getName()+" "+guest.getSurname();
+            seznam += guest.getName()+" "+guest.getSurname()+" ";
         }
         return seznam;
     }
