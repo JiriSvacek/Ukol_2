@@ -1,6 +1,7 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Booking {
     private ArrayList<Guest> listOfGuest = new ArrayList<>();
@@ -12,7 +13,7 @@ public class Booking {
         if (isEmpty(guests)) {
             throw new NullPointerException("Je potřeba zadat minimálně jednoho hosta");
         } else {
-            this.listOfGuest.addAll(Arrays.asList(guests));
+            this.listOfGuest.addAll(Arrays.asList(Objects.requireNonNull(guests)));
             this.room = room;
             this.beginning = beginning;
             this.end = end;

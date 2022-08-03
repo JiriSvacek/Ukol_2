@@ -18,7 +18,7 @@ public class Main {
         System.out.println(pokoj3.getDescription());
 
         Booking rezervace1 = new Booking(pokoj1,LocalDate.of(2021,7,19),
-                LocalDate.of(2021,7,26),false, adela);
+                LocalDate.of(2021,7,26),false);
         Booking rezervace2 = new Booking(pokoj3,LocalDate.of(2021,9,1),
                 LocalDate.of(2021,9,14),false,adela,jan);
 
